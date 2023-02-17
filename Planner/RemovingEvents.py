@@ -4,7 +4,7 @@ import pandas as pd
 def remove_event(date, time, name):
 
     df = pd.read_csv('Events.csv')
-    r_line = df[(df.Data == date) & (df.Godzina == time) & (df.Nazwa == name)]
+    r_line = df[(df.Date == date) & (df.Time == time) & (df.Name == name)]
     if r_line.empty:
         result = "No event has been found, therefore no event has been removed."
     else:

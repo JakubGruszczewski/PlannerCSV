@@ -7,6 +7,10 @@ from Operations import additional_options
 # 2. lepsze wyswietlanie
 # 3. dodanie GUI
 
+def return_function():
+    return_input = input("Press any key to return to main menu.\n")
+    if return_input != None:
+        main_menu()
 
 def main_menu():
     chosen_variant = input(
@@ -28,6 +32,7 @@ def main_menu():
     if int(chosen_variant) == 1:
         with open("Events.csv") as events:
             print(events.read())
+        return_function()
 
     elif int(chosen_variant) == 2:
         error = add_event()
@@ -36,6 +41,7 @@ def main_menu():
             main_menu()
         else:
             print("Event added.")
+            return_function()
 
     elif int(chosen_variant) == 3:
         print("Removed event data:")
@@ -43,11 +49,13 @@ def main_menu():
         r_time = input("Time (HH:MM): ")
         r_name = input("Name: ")
         print(remove_event(r_date, r_time, r_name))
+        return_function()
 
     elif int(chosen_variant) == 4:
         options = additional_options()
         if options == 1:
             main_menu()
+        return_function()
 
     elif int(chosen_variant) == 5:
         exit(print("Program has been terminated"))
