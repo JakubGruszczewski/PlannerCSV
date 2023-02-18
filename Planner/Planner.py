@@ -1,16 +1,14 @@
+from DisplayingEvents import display_events
 from AddingEvents import add_event
 from RemovingEvents import remove_event
 from Operations import additional_options
 
-#todo list
-# 1. cofanie do menu po wykonaniu zadania
-# 2. lepsze wyswietlanie
-# 3. dodanie GUI
 
 def return_function():
     return_input = input("Press any key to return to main menu.\n")
-    if return_input != None:
+    if return_input is not None:
         main_menu()
+
 
 def main_menu():
     chosen_variant = input(
@@ -23,15 +21,14 @@ def main_menu():
         "       5.[\U000021B3] Exit\n"
     )
 
-    if chosen_variant != "" and 49 <= ord(chosen_variant[0]) <= 52:
+    if chosen_variant != "" and 49 <= ord(chosen_variant[0]) <= 53:
         pass
     else:
         print("Incorrect input")
         main_menu()
 
     if int(chosen_variant) == 1:
-        with open("Events.csv") as events:
-            print(events.read())
+        display_events()
         return_function()
 
     elif int(chosen_variant) == 2:

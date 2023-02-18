@@ -10,7 +10,6 @@ def additional_options():
         "5. Look for a keyword in name&description.\n"
         "6. Return.\n")
     chosen_variant = chosen_variant[0]
-    print(f"You have chosen {chosen_variant}")
 
     if int(chosen_variant) == 1:
         df = pd.read_csv('Events.csv')
@@ -33,7 +32,7 @@ def additional_options():
         print(sorted_alphabetically.to_string(index=False))
 
     elif int(chosen_variant) == 5:
-        keyword = input("Enter the search term ")
+        keyword = input("Enter the search term: ")
         df = pd.read_csv('Events.csv')
         df_filtered = df[df["Name"].str.contains(keyword, case=False, na=False)
                          | df["Description"].str.contains(keyword, case=False, na=False)]
